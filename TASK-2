@@ -1,0 +1,65 @@
+Power BI Report Output – Internship Task 2: Data Integration
+
+🧷 Data Sources Used
+🔵 SQL Server – WalmartSalesDB
+
+Table: Sales
+
+Fields: OrderID, StoreID, ProductID, SalesAmount, Date, Quantity
+
+🟢 Excel File – products.xlsx
+
+Table: Products
+
+Fields: ProductID, ProductName, Category, Price
+
+🔁 Data Model (Relationships)
+Sales.ProductID → Products.ProductID
+
+One-to-Many Relationship from Products to Sales
+
+📊 Visuals Created
+1. 📈 Sales Trend Over Time
+Visual: Line Chart
+
+X-Axis: Date
+
+Y-Axis: Total SalesAmount
+
+Slicer: Product Category
+
+2. 💰 Total Sales by Category
+Visual: Column Chart
+
+Axis: Category
+
+Values: SUM of SalesAmount
+
+3. 🛍️ Top 10 Products by Sales
+Visual: Bar Chart
+
+Axis: ProductName
+
+Values: Total SalesAmount
+
+Filtered: Top 10
+
+4. 📍 Sales by Store Location
+Visual: Map (if location data is available)
+
+Values: Total SalesAmount
+
+Location: Store/City
+
+5. 🧾 Sales Summary Table
+Visual: Table
+
+Fields: OrderID, ProductName, Quantity, SalesAmount, Date
+
+6. 📦 KPI Cards
+Total Sales
+
+Total Quantity Sold
+
+Average Sales per Order
+
