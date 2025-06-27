@@ -1,0 +1,15 @@
+Column Name	Description
+Order ID	Unique identifier for each order
+Customer ID	Customer identifier
+Customer Name	Name of the customer
+Segment	Market segment (Consumer, Corporate, etc.)
+Country	Country of the sale
+Market	Geographical market (e.g., APAC, EU, US)
+Product ID	Product identifier
+Category	Product category (Furniture, Technology, etc.)
+Sub-Category	More detailed product classification
+Product Name	Name of the product
+Sales	Sales revenue generated
+Quantity	Quantity of product sold
+Profit	Profit generated from the sale
+Order Date	Date of the order
