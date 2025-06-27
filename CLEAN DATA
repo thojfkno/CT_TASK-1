@@ -1,0 +1,19 @@
+Clean: Data Cleaning in Power Query
+Data cleaning is a foundational step to ensure accuracy and consistency. The following transformations were applied using Power Query:
+
+✅ Removed duplicate rows to eliminate redundant data
+
+✅ Promoted headers correctly (used second row as column headers if needed)
+
+✅ Standardized column data types (e.g., Dates, Currency, Text)
+
+✅ Formatted date fields to use a consistent date format (e.g., dd-mm-yyyy)
+
+Transform: Enhancing with DAX
+To make analysis more efficient, the following DAX transformations were performed:
+
+📆 Created a new column: Year = YEAR('Orders'[Order Date])
+
+📅 Created another column: Month = MONTH('Orders'[Order Date])
+
+These transformations simplify time-based analysis.
