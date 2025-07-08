@@ -1,0 +1,71 @@
+Step-by-Step Implementation
+🔹 Step 1: Install and Configure Python
+Download Python: https://www.python.org/downloads
+
+Install required libraries:
+👍
+pip install pandas matplotlib seaborn👍  
+In Power BI:
+
+Go to File > Options > Python scripting
+
+Set your Python installation path (e.g., C:\Python311)
+
+🔹 Step 2: Load Your Dataset
+Use any dataset such as SalesData.csv with the following columns:
+| Product | Category | Sales | Profit | Quantity | Date |
+
+Load this dataset into Power BI via:
+
+Get Data → CSV or Excel
+
+🔹 Step 3: Create Python Script for Analysis or Visualization
+📌 Option A: In Power Query (Data Transformation)
+Go to Transform Data > Run Python Script
+
+Paste the following code:
+👍
+import pandas as pd
+
+# 'dataset' is a Power BI keyword for the current table
+dataset['ProfitMargin'] = dataset['Profit'] / dataset['Sales']
+dataset['SalesCategory'] = pd.qcut(dataset['Sales'], 4, labels=['Low', 'Medium', 'High', 'Top'])
+dataset
+This adds calculated columns to use in visuals.
+👍
+ Option B: In Python Visual (Dashboard View)
+Insert a Python visual from the Visualizations pane
+
+Drag fields like Category, Sales, Profit into the Values area
+
+Paste this code for a custom visual:
+👍
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.set(style="whitegrid")
+plt.figure(figsize=(8, 5))
+sns.barplot(x=dataset['Category'], y=dataset['Profit'])
+plt.title('Profit by Category')
+plt.ylabel('Profit')
+plt.xlabel('Category')
+plt.show()
+👍
+
+Interactivity
+✅ Slicers: Category, Date
+
+✅ Filters: Product, Sales Bucket
+
+📁 Final Deliverable
+.PBIX File: Task4_PythonIntegrated_Report.pbix
+
+Demonstrates:
+
+Data cleaning/transformation using Python
+
+Custom visuals with Python
+
+Interactivity and KPIs using Power BI
+
+  
