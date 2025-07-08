@@ -1,0 +1,89 @@
+ STEP-BY-STEP SETUP
+ Step 1: Use Power BI Service (Not Desktop)
+
+Real-time dashboards require the Power BI web service (https://app.powerbi.com)
+
+Sign in to Power BI Service
+
+Go to Workspaces → Create or Choose Workspace
+
+ Step 2: Create a Streaming Dataset (Push API)
+In Power BI Service:
+
+Go to Workspace > Datasets + dataflows
+
+Click + New → Streaming dataset
+
+Choose API as the source
+
+Define the schema. For example:
+
+json
+👍
+{
+  "timestamp": "datetime",
+  "product": "text",
+  "sales": "number",
+  "orders": "number",
+  "location": "text"
+}   👍
+Enable:
+
+✅ "Historic data analysis"
+
+Click Create → Copy the Push URL
+
+🔹 Step 3: Simulate Real-Time Data Feed (Python/Node/PowerShell)
+Use Python to push data every few seconds:
+
+python
+👍
+import requests, random, time
+from datetime import datetime
+
+url = "https://api.powerbi.com/beta/YOUR_PUSH_URL"
+
+while True:
+    data = [{
+        "timestamp": datetime.utcnow().isoformat(),
+        "product": random.choice(["Product A", "Product B", "Product C"]),
+        "sales": random.randint(100, 1000),
+        "orders": random.randint(1, 10),
+        "location": random.choice(["New York", "Delhi", "Tokyo"])
+    }]
+    requests.post(url, json=data)
+    time.sleep(5)   👍
+🟡 You can also use Postman or PowerShell to simulate posts manually.
+
+🔹 Step 4: Build the Live Dashboard
+In Power BI Service → Go to your Dashboard
+
+Click + Add tile → Custom streaming data
+
+Choose your streaming dataset
+
+Add visuals:
+
+Line Chart (Sales over time)
+
+Bar Chart (Orders by product)
+
+Gauge (Live sales value)
+
+Map (Live locations if available)
+
+KPI Cards (Total sales, total orders)
+
+🔹 Step 5: Share or Export
+Share your live dashboard link
+
+Download .pbix file (Note: .pbix can’t show real-time feed without service)
+
+Final Deliverable
+✅ Power BI Live Dashboard:
+
+URL: https://app.powerbi.com/...
+
+Real-time updates using streaming API
+
+Live visuals with auto-refresh every few seconds
